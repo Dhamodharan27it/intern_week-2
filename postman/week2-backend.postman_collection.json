@@ -1,0 +1,220 @@
+{
+  "info": {
+    "name": "Week 2 Backend APIs",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "01 To-Do API",
+      "item": [
+        {
+          "name": "Get Tasks",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:5001/api/tasks"
+          }
+        },
+        {
+          "name": "Create Task",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Finish Week 2 assignment\",\n  \"description\": \"Test this endpoint in Postman\",\n  \"completed\": false\n}"
+            },
+            "url": "http://localhost:5001/api/tasks"
+          }
+        },
+        {
+          "name": "Update Task",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"completed\": true\n}"
+            },
+            "url": "http://localhost:5001/api/tasks/{{taskId}}"
+          }
+        },
+        {
+          "name": "Delete Task",
+          "request": {
+            "method": "DELETE",
+            "url": "http://localhost:5001/api/tasks/{{taskId}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "02 Auth API",
+      "item": [
+        {
+          "name": "Register",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Dhamodharan\",\n  \"email\": \"dhamodharan@example.com\",\n  \"password\": \"password123\"\n}"
+            },
+            "url": "http://localhost:5002/api/auth/register"
+          }
+        },
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"dhamodharan@example.com\",\n  \"password\": \"password123\"\n}"
+            },
+            "url": "http://localhost:5002/api/auth/login"
+          }
+        },
+        {
+          "name": "Profile",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{authToken}}"
+              }
+            ],
+            "url": "http://localhost:5002/api/auth/profile"
+          }
+        }
+      ]
+    },
+    {
+      "name": "03 Notes API",
+      "item": [
+        {
+          "name": "Register",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Dhamodharan\",\n  \"email\": \"dhamodharan@example.com\",\n  \"password\": \"password123\"\n}"
+            },
+            "url": "http://localhost:5003/api/auth/register"
+          }
+        },
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"dhamodharan@example.com\",\n  \"password\": \"password123\"\n}"
+            },
+            "url": "http://localhost:5003/api/auth/login"
+          }
+        },
+        {
+          "name": "List Notes",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{notesToken}}"
+              }
+            ],
+            "url": "http://localhost:5003/api/notes"
+          }
+        },
+        {
+          "name": "Create Note",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{notesToken}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Week 2\",\n  \"content\": \"Build backend APIs with Node.js and MongoDB.\"\n}"
+            },
+            "url": "http://localhost:5003/api/notes"
+          }
+        },
+        {
+          "name": "Update Note",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{notesToken}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Week 2 \u2013 Completed\"\n}"
+            },
+            "url": "http://localhost:5003/api/notes/{{noteId}}"
+          }
+        },
+        {
+          "name": "Delete Note",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{notesToken}}"
+              }
+            ],
+            "url": "http://localhost:5003/api/notes/{{noteId}}"
+          }
+        }
+      ]
+    }
+  ]
+}
